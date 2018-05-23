@@ -1,0 +1,134 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <!-- ========================================================== -->
+    <!--                BASE THEME-->
+    <!-- ========================================================== -->
+
+    <style name="AdaHeader" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/valhalla</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="FotoHeader" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/ITAM</item>
+        <item name="colorPrimaryDark">@color/ITAM</item>
+        <item name="colorAccent">@color/ITAM</item>
+    </style>
+
+    <style name="IlanginHeader" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/valhalla</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <!-- ============================================================-->
+
+    <!--ToolBar-->
+    <style name="GUBOOKToolbar" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/valhalla</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- ========================================================== -->
+    <!--                           BUTTON                           -->
+    <!-- ========================================================== -->
+    <style name="GUBOOKButtonWhite" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/valhalla</item>
+        <item name="android:textColor">@color/valhalla</item>
+        <item name="colorButtonNormal">@color/white</item>
+    </style>
+
+    <style name="GUBOOKButtonBlue" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/white_smoke</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorButtonNormal">@color/blue_facebook</item>
+    </style>
+
+    <style name="GUBOOKButtonOrange" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/white_smoke</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorButtonNormal">@color/orange_dark</item>
+    </style>
+
+    <style name="GUBOOKButtonAccent" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/white_smoke</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorButtonNormal">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="GUBOOKButtonPink" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/white_smoke</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- ========================================================== -->
+    <!--                        WIDGET THEME                        -->
+    <!-- ========================================================== -->
+
+    <!--style 15-->
+    <color name="LoginSignup15colorAccent">#fe5824</color>
+    <color name="loginSignup15text">#585858</color>
+
+    <style name="GUBOOK_EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@color/BACKGROUND_EDIT_TEXT</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textCursorDrawable">@drawable/contoh_cursor</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!--FONT-->
+    <style name="FontTebal" parent="android:TextAppearance">
+        <item name="fontPath">fonts/Lato-Bold.ttf</item>
+    </style>
+
+    <!-- Tab Layout -->
+    <!--<style name="GUBOOK_TabLayout" parent="Widget.Design.TabLayout">-->
+    <!--<item name="tabBackground">?attr/selectableItemBackground</item>-->
+    <!--<item name="tabIndicatorColor">@color/BACKGROUND</item>-->
+    <!--<item name="tabSelectedTextColor">@android:color/black</item>-->
+    <!--<item name="tabTextAppearance">@style/GUBOOK_NavigationTabTextAppeareance</item>-->
+    <!--<item name="tabIndicatorHeight">3dp</item>-->
+    <!--</style>-->
+
+    <!--<style name="GUBOOK_NavigationTabTextAppeareance" parent="TextAppearance.Design.Tab">-->
+    <!--<item name="android:textColor">@android:color/black</item>-->
+    <!--<item name="android:textSize">12sp</item>-->
+    <!--</style>-->
+
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="SizeSpecificCollapsingToolbarLayout">
+        <item name="layout_scrollFlags">scroll|exitUntilCollapsed</item>
+        <item name="contentScrim">?attr/colorPrimary</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--BASES COLOR-->
+    <color name="transparent">#80000000</color>
+
+    <color name="BACKGROUND">#F1F5F8</color>
+    <!--<color name="BACKGROUND_EDIT_TEXT">#c7d5df</color>-->
+    <color name="BACKGROUND_EDIT_TEXT">#ecf0f1</color>
+    <!--<color name="BACKGROUND_EDIT_TEXT">#f1f2f6</color>-->
+    <color name="GUBOOKLOGO">#2C3E50</color>
+    <color name="ITAM">#000</color>
+
+    <color name="white">#fff</color>
+    <color name="white_smoke">#ecf0f1</color>
+    <color name="view">#e3e3e3</color>
+    <color name="plum">#e4b5fc</color>
+    <color name="oslo_grey">#7f8c8d</color>
+
+    <color name="carissma">#f98da5</color>
+    <color name="maroon">#D74974</color>
+    <color name="maroon2">#CC5649</color>
+    <color name="hibiscus">#d1395c</color>
+    <color name="hibiscus2">#d81d60</color>
+    <color name="crimson">#ea2064</color>
+
+    <color name="corn">#E8AA31</color>
+    <color name="moon_yellow">#f1c40f</color>
+    <color name="supernova">#fbba2d</color>
+    <color name="orange_dark">#ff9807</color>
+    <color name="orange_red">#ff5718</color>
+    <color name="tomato">#e94a18</color>
+
+    <color name="sea_green">#8cf9eb</color>
+    <color name="turquoise">#0fb7a1</color>
+    <color name="light_sea_green">#14a895</color>
+
+    <color name="jordy_blue">#93c6fd</color>
+    <color name="cornflower">#2278d4</color>
+    <color name="dodger_blue">#438ff5</color>
+
+    <color name="medium_orchid">#a854d4</color>
+    <color name="indigo">#7824a1</color>
+
+    <color name="vida_loca">#80b352</color>
+    <color name="forest_green">#43bd42</color>
+
+    <color name="blue_facebook">#40579b</color>
+    <color name="blue_facebook_dark">#33457b</color>
+    <color name="valhalla">#30304B</color>
+    <color name="bleached_cedar">#484848</color>
+
+</resources>

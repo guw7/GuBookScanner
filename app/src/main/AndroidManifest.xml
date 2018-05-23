@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.guw.gubook">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- APP FIRST LOAD -->
+        <activity
+            android:name=".views.activity.SplahScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/IlanginHeader"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- APP FIRST LOAD -->
+        <activity
+            android:name=".views.activity.Utama"
+            android:theme="@style/IlanginHeader" />
+        <activity
+            android:name=".views.activity.PageLogin"
+            android:label="Masuk"
+            android:screenOrientation="portrait"
+            android:theme="@style/AdaHeader">
+
+            <!-- android:theme="@style/AdaHeader" /> -->
+
+        </activity>
+        <activity
+            android:name=".views.activity.PageRegister"
+            android:label="Buat Akun"
+            android:screenOrientation="portrait"
+            android:theme="@style/AdaHeader" />
+        <activity
+            android:name=".views.activity.PageHome"
+            android:label="@string/title_activity_page_home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AdaHeader" />
+        <activity
+            android:name=".views.activity.Scanner"
+            android:screenOrientation="portrait"
+            android:theme="@style/AdaHeader"></activity>
+        <activity android:name=".views.activity.PageProfile"></activity>
+    </application>
+
+</manifest>

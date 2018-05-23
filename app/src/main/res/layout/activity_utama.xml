@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BACKGROUND"
+    android:fitsSystemWindows="true"
+    tools:context=".views.activity.Utama"
+    tools:openDrawer="start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/BACKGROUND">
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="96dp"
+            android:src="@drawable/logo_poltek" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView3"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="GUBOOK SCANNER"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView5"
+            android:layout_margin="@dimen/text_margin"
+            android:gravity="center"
+            android:text="Selamat datang di Aplikasi GUBOOK Scanner. Aplikasi yang membantu untuk mendata pengunjung perpustakaan Politeknik Aceh, Silahkan Masuk atau Buat Akun untuk memulai apliasi ini." />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_alignParentBottom="true"
+            android:scaleType="centerCrop" />
+        <!--android:src="@drawable/bg_sp" />-->
+
+        <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="BUAT AKUN"
+                android:theme="@style/GUBOOKButtonWhite" />
+            <!--android:onClick="onClick" />-->
+
+            <Button
+                android:id="@+id/btnSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="MASUK"
+                android:textColor="@android:color/white"
+                android:theme="@style/GUBOOKButtonBlue" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
