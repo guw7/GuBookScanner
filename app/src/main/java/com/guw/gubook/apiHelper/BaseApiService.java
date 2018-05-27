@@ -21,12 +21,16 @@ public interface BaseApiService {
             @Field("nim_mhs") String nim_mhs,
             @Field("passwd") String passwd);
 
-//     REGISTER
-//    @FormUrlEncoded
-//    @POST("register.php")
-//    Call<ResponseBody> registerRequest(@Field("nama") String nama,
-//                                       @Field("email") String email,
-//                                       @Field("password") String password);
+    // REGISTER
+    @FormUrlEncoded
+    @POST("register.php")
+    Call<ResponseBody> registerRequest(@Field("nama") String nama,
+                                       @Field("email") String email,
+                                       @Field("password") String password,
+                                       @Field("jk") String jk,
+                                       @Field("asal") String asal,
+                                       @Field("alamat") String alamat,
+                                       @Field("no_hp") String noHp);
 
 
 //    CONTOH GET BASIC

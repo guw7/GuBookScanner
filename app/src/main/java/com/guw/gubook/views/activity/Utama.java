@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.guw.gubook.Action.PrefManager;
 import com.guw.gubook.R;
 
 public class Utama extends AppCompatActivity {
 
     Button btnSignIn, btnSignUp;
+    PrefManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

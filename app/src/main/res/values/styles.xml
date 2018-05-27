@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimary</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- ========================================================== -->
@@ -13,9 +16,9 @@
     <!-- ========================================================== -->
 
     <style name="AdaHeader" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimaryDark</item>
-        <item name="colorPrimaryDark">@color/valhalla</item>
-        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
     <style name="FotoHeader" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -51,7 +54,7 @@
     <style name="GUBOOKButtonBlue" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">@color/white_smoke</item>
         <item name="android:textColor">@color/white</item>
-        <item name="colorButtonNormal">@color/blue_facebook</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
     </style>
 
     <style name="GUBOOKButtonOrange" parent="Theme.AppCompat.Light">
@@ -129,6 +132,5 @@
         <item name="layout_scrollFlags">scroll|exitUntilCollapsed</item>
         <item name="contentScrim">?attr/colorPrimary</item>
     </style>
-
 
 </resources>

@@ -1,5 +1,7 @@
 package com.guw.gubook.Action;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.io.IOException;
@@ -19,9 +21,28 @@ public class Koneksi {
     private final MediaType Json = MediaType.parse("application/json");
     private String tesUrl;
     private String id_pengunjung, nim, nama, alamat, jk, asal, angkatan, email, no_hp;
+    SharedPreferences sharedPreferences;
+    PrefManager manager;
+    String[] data;
 
-    public void postJson(String result, String[] data) {
+    public Koneksi(Context context) {
+        manager = new PrefManager(context);
+        sharedPreferences = context.getSharedPreferences(manager.PREF_NAME, 0);
+    }
+
+    public void postJson(String result) {
         final int valHadir = Integer.valueOf(result);
+        data = new String[]{
+                sharedPreferences.getString("id_pengunjung", " "),
+                sharedPreferences.getString("nim", " "),
+                sharedPreferences.getString("nama", " "),
+                sharedPreferences.getString("alamat", " "),
+                sharedPreferences.getString("jk", " "),
+                sharedPreferences.getString("asal", " "),
+                sharedPreferences.getString("angkatan", " "),
+                sharedPreferences.getString("email", " "),
+                sharedPreferences.getString("no_hp", " "),
+        };
 
         //Data User Lokal
         if (data.length == 9) {
@@ -37,14 +58,13 @@ public class Koneksi {
         } else {
             //Data User Luar
             id_pengunjung = data[0];
-            nim = data[1];
-            nama = data[2];
-            alamat = data[3];
-            jk = data[4];
-            asal = data[5];
+            nama = data[1];
+            alamat = data[2];
+            jk = data[3];
+            asal = data[4];
             angkatan = " ";
-            email = data[6];
-            no_hp = data[7];
+            email = data[5];
+            no_hp = data[6];
         }
 
 // POST PENGUNJUNG

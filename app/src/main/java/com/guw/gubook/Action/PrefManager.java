@@ -16,7 +16,7 @@ import android.content.SharedPreferences;
 public class PrefManager {
     public static final String CEK_LOGIN = "IsLogin";
     // Shared preferences file name
-    private static final String PREF_NAME = "PREF_GUBOOK";
+    public static final String PREF_NAME = "PREF_GUBOOK";
     private static final String CEK_SUDAH_LOGIN = "sessionLogin";
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
@@ -31,15 +31,47 @@ public class PrefManager {
 
     // session login
     public boolean sessionLogin() {
-        return pref.getBoolean(CEK_SUDAH_LOGIN, true);
+        return pref.getBoolean(CEK_SUDAH_LOGIN, false);
     }
 
+    public void setSudahLogin(boolean sudahLogin, String[] data) {
+        editor.putBoolean(CEK_SUDAH_LOGIN, sudahLogin);
+
+        //Data User Lokal
+        if (data.length == 9) {
+            editor.putString("id_pengunjung", data[0]);
+            editor.putString("nim", data[1]);
+            editor.putString("nama", data[2]);
+            editor.putString("alamat", data[3]);
+            editor.putString("jk", data[4]);
+            editor.putString("asal", data[5]);
+            editor.putString("angkatan", data[6]);
+            editor.putString("email", data[7]);
+            editor.putString("no_hp", data[8]);
+        } else {
+            //Data User Luar
+            editor.putString("id_pengunjung", data[0]);
+            editor.putString("nama", data[1]);
+            editor.putString("alamat", data[2]);
+            editor.putString("jk", data[3]);
+            editor.putString("asal", data[4]);
+            editor.putString("angkatan", " ");
+            editor.putString("email", data[5]);
+            editor.putString("no_hp", data[6]);
+        }
+        editor.commit();
+    }
+
+    // ini method khusus pemanggilan button logout
+    // karena logout tidak memerlukan data user;
     public void setSudahLogin(boolean sudahLogin) {
         editor.putBoolean(CEK_SUDAH_LOGIN, sudahLogin);
         editor.commit();
     }
 
-    // --------------------------------------------------------
+    // -------------------------------------------------------- //
+
+
 
 
 }

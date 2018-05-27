@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.guw.gubook.Action.ActionClass;
+import com.guw.gubook.Action.PrefManager;
 import com.guw.gubook.R;
 import com.guw.gubook.apiHelper.BaseApiService;
 import com.guw.gubook.apiHelper.UtilsApi;
@@ -30,6 +31,8 @@ public class PageLogin extends ActionClass {
     ProgressDialog loading;
     Context mContext;
     BaseApiService mApiService;
+    PrefManager manager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class PageLogin extends ActionClass {
 
         mContext = this; // .. <- class ini
         mApiService = UtilsApi.getAPIService(); // panggil apihelper
+
+        manager = new PrefManager(this);
 
         // init
         email = findViewById(R.id.idUsername);
@@ -49,7 +54,6 @@ public class PageLogin extends ActionClass {
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (email.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Username tidak boleh kosong!", Toast.LENGTH_SHORT).show();
                 } else if (password.getText().toString().isEmpty()) {
@@ -58,7 +62,6 @@ public class PageLogin extends ActionClass {
                     loading = ProgressDialog.show(mContext, null,
                             "Harap Tunggu...",
                             true, false);
-
                     requestLogin(); // tester
                 }
             }
@@ -106,7 +109,6 @@ public class PageLogin extends ActionClass {
 
                                         // parsing data
                                         String id = jsonRESULTS.getJSONObject("user").getString("id_pengunjung_luar");
-                                        String nim = jsonRESULTS.getJSONObject("user").getString("nim");
                                         String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                         String alamat = jsonRESULTS.getJSONObject("user").getString("alamat");
                                         String jk = jsonRESULTS.getJSONObject("user").getString("jk");
@@ -114,8 +116,9 @@ public class PageLogin extends ActionClass {
                                         String email = jsonRESULTS.getJSONObject("user").getString("email");
                                         String no_hp = jsonRESULTS.getJSONObject("user").getString("no_hp");
 
-                                        Intent intent = new Intent(mContext, PageHome.class);
-                                        intent.putExtra("result_user", new String[]{id, nim, nama, alamat, jk, asal, email, no_hp});
+                                        manager.setSudahLogin(true, new String[]{id, nama, alamat, jk, asal, email, no_hp});
+
+                                        Intent intent = new Intent(mContext, MenuFragment.class);
                                         startActivity(intent);
 
                                     } else {
@@ -166,8 +169,9 @@ public class PageLogin extends ActionClass {
                                         String email = jsonRESULTS.getJSONObject("user").getString("email");
                                         String no_hp = jsonRESULTS.getJSONObject("user").getString("no_hp");
 
-                                        Intent intent = new Intent(mContext, PageHome.class);
-                                        intent.putExtra("result_user", new String[]{id, nim, nama, alamat, jk, asal, angkatan, email, no_hp});
+                                        manager.setSudahLogin(true, new String[]{id, nim, nama, alamat, jk, asal, angkatan, email, no_hp});
+
+                                        Intent intent = new Intent(mContext, MenuFragment.class);
                                         startActivity(intent);
 
                                     } else {
@@ -192,9 +196,8 @@ public class PageLogin extends ActionClass {
                             loading.dismiss();
                         }
                     });
-
-            //  Toast.makeText(getApplicationContext(), "Hai apalah",Toast.LENGTH_SHORT).show();
         }
+
 
     }
 }

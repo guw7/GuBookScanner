@@ -26,8 +26,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
     private static final int REQUEST_CAMERA = 1;
     private static int camId = Camera.CameraInfo.CAMERA_FACING_BACK;
     private ZXingScannerView scannerView;
-    private Koneksi koneksi = new Koneksi();
-    private String[] data;
+    private Koneksi koneksi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +34,10 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         scannerView = new ZXingScannerView(this);
         setContentView(scannerView);
         int currentApiVersion = Build.VERSION.SDK_INT;
-        Bundle extras = getIntent().getExtras();
+        koneksi = new Koneksi(this);
 
-        if (extras != null) {
-            data = extras.getStringArray("data");
-        }
 
         getSupportActionBar().setTitle("GUBOOK SCANNER");
-
 
         if (currentApiVersion >= Build.VERSION_CODES.M) {
             if (checkPermission()) {
@@ -138,7 +133,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent bb = new Intent(Scanner.this, PageHome.class);
+                Intent bb = new Intent(Scanner.this, MenuFragment.class);
                 startActivity(bb);
                 finish();
             }
@@ -158,14 +153,14 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         AlertDialog alert1 = builder.create();
         alert1.show();
 
-        koneksi.postJson(result.getText().toString(), data);
+        koneksi.postJson(result.getText().toString());
     }
 
     //  Button Back
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(Scanner.this, PageHome.class);
+        Intent i = new Intent(Scanner.this, MenuFragment.class);
         startActivity(i);
         finish();
     }

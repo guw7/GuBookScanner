@@ -8,6 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context=".views.activity.PageLogin">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,8 +29,10 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="62dp"
-                    android:layout_marginTop="56dp"
+                    android:layout_height="72dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="45dp"
                     app:srcCompat="@drawable/logo_poltek" />
 
                 <TextView
@@ -75,12 +78,15 @@
                         android:id="@+id/idUsername"
                         style="@style/GUBOOK_EditText"
                         android:hint="@string/username"
+                        android:background="@drawable/shape_border_radius"
                         android:inputType="textPersonName" />
 
                     <EditText
                         android:id="@+id/idPassword"
                         style="@style/GUBOOK_EditText"
                         android:hint="@string/password"
+                        android:background="@drawable/shape_border_radius"
+                        android:gravity="center_vertical"
                         android:inputType="textPassword" />
 
                     <RelativeLayout
@@ -119,7 +125,18 @@
                         android:text="@string/signin"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
-                        android:theme="@style/GUBOOKButtonAccent" />
+                        android:theme="@style/GUBOOKButtonBlue" />
+
+                    <!--<Button-->
+                    <!--android:id="@+id/btnRegister"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="15dp"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:background="@null"-->
+                    <!--android:text="@string/create_account"-->
+                    <!--android:textAllCaps="false" />-->
 
                     <ProgressBar
                         android:id="@+id/pb1"
@@ -127,6 +144,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:visibility="gone" />
+
 
                 </LinearLayout>
 
@@ -144,9 +162,10 @@
                 <Button
                     android:id="@+id/btnRegister"
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:background="@null"
                     android:text="@string/create_account"

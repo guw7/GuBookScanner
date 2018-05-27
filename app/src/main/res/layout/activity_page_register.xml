@@ -79,28 +79,71 @@
                     android:paddingBottom="@dimen/activity_vertical_margin">
 
                     <EditText
-                        android:id="@+id/edFullname"
+                        android:id="@+id/idFullname"
                         style="@style/GUBOOK_EditText"
                         android:hint="@string/fullname"
+                        android:background="@drawable/shape_border_radius"
                         android:inputType="textPersonName" />
 
                     <EditText
-                        android:id="@+id/edUsername"
+                        android:id="@+id/idEmail"
                         style="@style/GUBOOK_EditText"
-                        android:hint="@string/username"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/edEmail"
-                        style="@style/GUBOOK_EditText"
+                        android:background="@drawable/shape_border_radius"
                         android:hint="@string/email_address"
                         android:inputType="textEmailAddress" />
 
                     <EditText
-                        android:id="@+id/edPassword"
+                        android:id="@+id/idPassword"
                         style="@style/GUBOOK_EditText"
+                        android:background="@drawable/shape_border_radius"
                         android:hint="@string/password"
                         android:inputType="textPassword" />
+
+                    <RadioGroup
+                        android:id="@+id/rgJK"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="20"
+                        android:visibility="visible">
+
+                        <RadioButton
+                            android:id="@+id/rdLaki"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/laki" />
+
+                        <RadioButton
+                            android:id="@+id/rdPerempuan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/perempuan" />
+
+                    </RadioGroup>
+
+                    <EditText
+                        android:id="@+id/idAlamat"
+                        style="@style/GUBOOK_EditText"
+                        android:background="@drawable/shape_border_radius"
+                        android:hint="@string/alamat"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/idAsal"
+                        style="@style/GUBOOK_EditText"
+                        android:background="@drawable/shape_border_radius"
+                        android:hint="@string/asal"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/idNoHp"
+                        style="@style/GUBOOK_EditText"
+                        android:background="@drawable/shape_border_radius"
+                        android:hint="@string/noHp"
+                        android:inputType="textPersonName" />
 
                     <Button
                         android:id="@+id/btnRegister"
@@ -114,7 +157,7 @@
                         android:text="@string/signup"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
-                        android:theme="@style/GUBOOKButtonAccent"
+                        android:theme="@style/GUBOOKButtonBlue"
                         tools:ignore="OnClick" />
 
                     <ProgressBar

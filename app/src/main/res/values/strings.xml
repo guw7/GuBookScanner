@@ -12,8 +12,8 @@
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Beranda</string>
+    <string name="title_utama">Menu Utama</string>
+    <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_profile">Profile</string>
     <string name="title_about">About</string>
@@ -25,7 +25,6 @@
     <string name="lorem_ipsum"> </string>
     <string name="title_activity_komentar">List Komentar</string>
     <string name="title_activity_komentar_add">Tambah Komentar</string>
-    <!--<string name="action_search">Cari disini ...</string>-->
 
     <!--POPUP-->
     <string name="welcome">Selamat Datang di Perpustakaan Politeknik Aceh.</string>
@@ -39,30 +38,37 @@
     <string name="Getversi">1.0.1</string>
     <string name="logout">Keluar</string>
 
-    <!-- Edit Profile -->
-    <string name="general_information">INFORMASI UMUM</string>
-    <string name="privacy_information">INFORMASI PRIVASI</string>
+    <!-- Data Profile -->
+    <string name="data_profile">DATA PROFILE</string>
+    <string name="desc_profile">Infomasi data pengguna aplikasi</string>
+    <string name="jdl_profile">INFORMASI DATA PENGGUNA</string>
     <string name="fullname">Nama Lengkap</string>
-    <string name="username">Nama Unik / Username</string>
-    <string name="email_address">Alamat Email</string>
+    <string name="email_address">Email</string>
+    <string name="jk">Jenis Kelamin</string>
+    <string name="laki">Laki-Laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="alamat">Alamat Domisili</string>
+    <string name="asal">Asal</string>
+    <string name="noHp">No HP</string>
     <string name="update_profile">Perbarui Profil</string>
 
     <!-- Login -->
     <string name="login_title">Masuk</string>
     <string name="login_desc">Silahkan Masuk Untuk Melanjutkan</string>
+    <string name="username">Nim/Email</string>
     <string name="password">Password</string>
     <string name="remember_me">Ingat Saya</string>
     <string name="forget_password">Lupa Password</string>
     <string name="signin">Masuk</string>
-    <string name="create_account">Belum Punya Akun ?</string>
+    <string name="create_account">Belum Punya Akun ? Daftar Akun</string>
 
     <!-- Register -->
     <string name="register_title">Buat Akun</string>
-    <string name="register_desc">isi data kamu disini</string>
+    <string name="register_desc">Isi data kamu disini</string>
     <string name="signup">Buat Akun </string>
     <string name="have_account">Sudah Punya Akun? Login</string>
 
     <string name="button_ok">OK</string>
-    <string name="title_activity_page_home">PageHome</string>
+    <string name="title_activity_menu_fragment">MenuFragment</string>
 
 </resources>
