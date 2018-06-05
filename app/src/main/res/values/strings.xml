@@ -47,7 +47,7 @@
     <string name="jk">Jenis Kelamin</string>
     <string name="laki">Laki-Laki</string>
     <string name="perempuan">Perempuan</string>
-    <string name="alamat">Alamat Domisili</string>
+    <string name="alamat">Alamat</string>
     <string name="asal">Asal</string>
     <string name="noHp">No HP</string>
     <string name="update_profile">Perbarui Profil</string>
@@ -69,6 +69,14 @@
     <string name="have_account">Sudah Punya Akun? Login</string>
 
     <string name="button_ok">OK</string>
-    <string name="title_activity_menu_fragment">MenuFragment</string>
+    <string name="title_activity_menu_fragment">GuBook Scanner</string>
+
+    <!-- About? -->
+    <string name="author">Author</string>
+    <string name="nameAuthor">Ghaffara Urwatul Wusqa</string>
+    <string name="contact">Contact</string>
+    <string name="contactAuthor">085206754690</string>
+    <string name="bantuan">Bantuan</string>
+
 
 </resources>

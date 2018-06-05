@@ -18,6 +18,7 @@ public class PrefManager {
     // Shared preferences file name
     public static final String PREF_NAME = "PREF_GUBOOK";
     private static final String CEK_SUDAH_LOGIN = "sessionLogin";
+    private static final String CEK_SUDAH_SCAN = "sudahScan";
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
     private Context mContext;
@@ -71,7 +72,13 @@ public class PrefManager {
 
     // -------------------------------------------------------- //
 
+    //sesionSudah Scan
+    public boolean isSudahScan() {
+        return pref.getBoolean(CEK_SUDAH_SCAN, false);
+    }
 
-
+    public void setSudahScan(boolean sudahScan) {
+        editor.putBoolean(CEK_SUDAH_SCAN, sudahScan);
+    }
 
 }

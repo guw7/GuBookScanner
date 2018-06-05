@@ -39,6 +39,8 @@ public class PageLogin extends ActionClass {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_login);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mContext = this; // .. <- class ini
         mApiService = UtilsApi.getAPIService(); // panggil apihelper
 
@@ -193,6 +195,7 @@ public class PageLogin extends ActionClass {
                         @Override
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
                             prinT("onFailure: ERROR > " + t.toString());
+                            Toast.makeText(mContext, "UPPSS .. \n\n Koneksi Internet Bermasalah \n\n Periksa kembali koneksi anda!", Toast.LENGTH_SHORT).show();
                             loading.dismiss();
                         }
                     });

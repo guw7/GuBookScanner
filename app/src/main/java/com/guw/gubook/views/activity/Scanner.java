@@ -16,6 +16,9 @@ import android.widget.Toast;
 
 import com.google.zxing.Result;
 import com.guw.gubook.Action.Koneksi;
+import com.guw.gubook.Action.PrefManager;
+
+import java.util.Calendar;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -27,6 +30,8 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
     private static int camId = Camera.CameraInfo.CAMERA_FACING_BACK;
     private ZXingScannerView scannerView;
     private Koneksi koneksi;
+    PrefManager manager;
+    private Calendar calendar, calendar2, calendar3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +41,27 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         int currentApiVersion = Build.VERSION.SDK_INT;
         koneksi = new Koneksi(this);
 
+        manager = new PrefManager(this);
 
+        calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 9);
+        calendar.set(Calendar.MINUTE, 0);
+
+        calendar2 = Calendar.getInstance();
+        calendar2.setTimeInMillis(System.currentTimeMillis());
+        calendar2.set(Calendar.HOUR_OF_DAY, 17);
+        calendar2.set(Calendar.MINUTE, 0);
+
+        calendar3 = Calendar.getInstance();
+        calendar3.setTimeInMillis(System.currentTimeMillis());
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("GUBOOK SCANNER");
+
+        while (calendar3.getTimeInMillis() < calendar.getTimeInMillis() || calendar3.getTimeInMillis() > calendar2.getTimeInMillis()) {
+            manager.setSudahScan(false);
+        }
 
         if (currentApiVersion >= Build.VERSION_CODES.M) {
             if (checkPermission()) {
@@ -128,32 +152,72 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         Log.d("QRCodeScanner", result.getText());
         Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("\tSelamat Datang di \n Perpustakaan Politeknik Aceh");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent bb = new Intent(Scanner.this, MenuFragment.class);
-                startActivity(bb);
-                finish();
-            }
-        });
-        builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bukutamu-via.cloud.revoluz.io"));
-                startActivity(browserIntent);
-            }
-        });
+        if (result.getText().equals("1") && calendar3.getTimeInMillis() > calendar.getTimeInMillis() && calendar3.getTimeInMillis() < calendar2.getTimeInMillis() && manager.isSudahScan()) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("\tSelamat Datang di \n Perpustakaan Politeknik Aceh");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    manager.setSudahScan(true);
+                    finish();
+                }
+            });
+            builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bukutamu-via.cloud.revoluz.io"));
+                    startActivity(browserIntent);
+                }
+            });
 
 //        String welcome = String.valueOf(R.string.welcome);
 //        builder.setMessage(result.getText());
-        builder.setMessage("Terima kasih telah mengunjungi perpustakaan Politeknik Aceh :)");
+            builder.setMessage("Terima kasih telah mengunjungi perpustakaan Politeknik Aceh :)");
 
-        AlertDialog alert1 = builder.create();
-        alert1.show();
+            AlertDialog alert1 = builder.create();
+            alert1.show();
 
-        koneksi.postJson(result.getText().toString());
+            koneksi.postJson(result.getText().toString());
+        } else if (calendar3.getTimeInMillis() < calendar.getTimeInMillis() || calendar3.getTimeInMillis() > calendar2.getTimeInMillis()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("UPPS! \n Belum waktunya untuk berbuka ;)");
+            builder.setPositiveButton("Coba Lagi!", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+
+            AlertDialog alert1 = builder.create();
+            alert1.show();
+
+        } else if (!manager.isSudahScan()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("UPPSS, Anda sudah Scan hari ini, \n Coba lagi esok hari ;)");
+            builder.setPositiveButton("Coba Lagi!", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+
+            AlertDialog alert1 = builder.create();
+            alert1.show();
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Maaf QR-Code yg anda scan, SALAH!");
+            builder.setPositiveButton("Coba Lagi!", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+
+            AlertDialog alert1 = builder.create();
+            alert1.show();
+        }
+
     }
 
     //  Button Back

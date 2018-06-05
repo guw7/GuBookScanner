@@ -9,17 +9,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.guw.gubook.Action.PrefManager;
 import com.guw.gubook.R;
 import com.guw.gubook.views.activity.PageLogin;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 public class FragProfile extends Fragment {
 
-
-    Button btnLogout;
+    FancyButton btnLogout;
     PrefManager manager;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;

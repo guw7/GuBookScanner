@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.guw.gubook"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -42,8 +42,14 @@ dependencies {
 
     implementation 'com.ss.bottomnavigation:bottomnavigation:1.5.2'
 
-// ZXING Library
+//  ZXING Library
     implementation 'me.dm7.barcodescanner:zxing:1.9'
+
+//  Pulse Animation
+    implementation 'pl.bclogic:pulsator4droid:1.0.3'
+
+//  Slider
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

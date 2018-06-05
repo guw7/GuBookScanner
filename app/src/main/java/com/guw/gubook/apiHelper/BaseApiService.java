@@ -26,20 +26,10 @@ public interface BaseApiService {
     @POST("register.php")
     Call<ResponseBody> registerRequest(@Field("nama") String nama,
                                        @Field("email") String email,
-                                       @Field("password") String password,
+                                       @Field("u_password") String u_password,
                                        @Field("jk") String jk,
                                        @Field("asal") String asal,
                                        @Field("alamat") String alamat,
-                                       @Field("no_hp") String noHp);
-
-
-//    CONTOH GET BASIC
-//    @GET("guw")
-//    Call<ResponseMDVK> getSemuaGUW();
-
-//    CONTOH HET WITH PARAM
-//    @GET("guw/{userpro}")
-//    Call<ResponseUserDetail> getDetailUser(@Path("userpro") String namauser);
-
+                                       @Field("no_hp") String no_hp);
 
 }
