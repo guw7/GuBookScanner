@@ -9,6 +9,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,25 +38,26 @@
             android:theme="@style/IlanginHeader" />
         <activity
             android:name=".views.activity.PageLogin"
-            android:parentActivityName=".views.activity.Utama"
             android:label="Masuk"
+            android:parentActivityName=".views.activity.Utama"
             android:screenOrientation="portrait"
             android:theme="@style/AdaHeader" />
         <activity
             android:name=".views.activity.PageRegister"
-            android:parentActivityName=".views.activity.Utama"
             android:label="Buat Akun"
+            android:parentActivityName=".views.activity.Utama"
             android:screenOrientation="portrait"
             android:theme="@style/AdaHeader" />
         <activity
             android:name=".views.activity.Scanner"
-            android:screenOrientation="portrait"
             android:parentActivityName=".views.activity.MenuFragment"
+            android:screenOrientation="portrait"
             android:theme="@style/AdaHeader" />
         <activity
             android:name=".views.activity.MenuFragment"
             android:label="@string/title_activity_menu_fragment"
-            android:theme="@style/AdaHeader"></activity>
+            android:theme="@style/AdaHeader" />
+        <activity android:name=".views.activity.PageEditProfile"></activity>
     </application>
 
 </manifest>

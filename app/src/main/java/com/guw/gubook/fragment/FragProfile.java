@@ -13,13 +13,14 @@ import android.widget.TextView;
 
 import com.guw.gubook.Action.PrefManager;
 import com.guw.gubook.R;
+import com.guw.gubook.views.activity.PageEditProfile;
 import com.guw.gubook.views.activity.PageLogin;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
 public class FragProfile extends Fragment {
 
-    FancyButton btnLogout;
+    FancyButton btnLogout, btnEdit;
     PrefManager manager;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -35,6 +36,7 @@ public class FragProfile extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences(manager.PREF_NAME, 0);
         editor = sharedPreferences.edit();
         btnLogout = view.findViewById(R.id.btnLogout);
+        btnEdit = view.findViewById(R.id.btnEdit);
 
         tvNama = view.findViewById(R.id.tvNama);
         tvAlamat = view.findViewById(R.id.tvAlamat);
@@ -58,6 +60,14 @@ public class FragProfile extends Fragment {
                 editor.commit();
 
                 Intent intent = new Intent(getActivity(), PageLogin.class);
+                startActivity(intent);
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PageEditProfile.class);
                 startActivity(intent);
             }
         });

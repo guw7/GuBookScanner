@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:visibility="gone">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_person_white"
+                android:tint="@color/white"
+                card_view:civ_border_color="@color/colorPrimaryDark"
+                card_view:civ_border_width="10dp"
+                card_view:civ_fill_color="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/percent_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Loading..."
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/root_layout"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:background="@color/oslo_grey">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:padding="24dp">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal|center_vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/photoProfile"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/logo"
+                        card_view:civ_border_color="#aaa"
+                        card_view:civ_border_width="3dp"
+                        card_view:civ_fill_color="@color/cardview_dark_background" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnUpload1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="160dp"
+                android:text="Test Upload"
+                android:theme="@style/GUBOOKButtonAccent"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white_smoke" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="@string/jdl_profile"
+                android:textAppearance="@style/FontTebal"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/fullname" />
+
+            <EditText
+                android:id="@+id/idFullname"
+                style="@style/GUBOOK_EditText"
+                android:hint="@string/fullname"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/username" />
+
+            <TextView
+                android:id="@+id/idUsername"
+                style="@style/GUBOOK_EditText"
+                android:enabled="false"
+                android:hint="Nim/Email" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/jk" />
+
+            <TextView
+                android:id="@+id/tvJK"
+                style="@style/GUBOOK_EditText"
+                android:enabled="false"
+                android:hint="@string/jk" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/asal" />
+
+            <TextView
+                android:id="@+id/tvAsal"
+                style="@style/GUBOOK_EditText"
+                android:enabled="false"
+                android:hint="@string/asal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/noHp" />
+
+            <TextView
+                android:id="@+id/tvNoHp"
+                style="@style/GUBOOK_EditText"
+                android:enabled="false"
+                android:hint="@string/noHp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/alamat" />
+
+            <TextView
+                android:id="@+id/tvAlamat"
+                style="@style/GUBOOK_EditText"
+                android:enabled="false"
+                android:hint="@string/alamat" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:text="@string/update_profile"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:theme="@style/GUBOOKButtonAccent" />
+
+            <ProgressBar
+                android:id="@+id/pb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_smoke" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="ID USER"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/edPhoneNumber"
+                    style="@style/GUBOOK_EditText"
+                    android:enabled="false"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvGambarLoad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:text="sadasdasd"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvGambarUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:text="sadasdasd"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

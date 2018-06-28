@@ -72,13 +72,14 @@ public class PrefManager {
 
     // -------------------------------------------------------- //
 
-    //sesionSudah Scan
-    public boolean isSudahScan() {
-        return pref.getBoolean(CEK_SUDAH_SCAN, false);
+//    //sesionSudah Scan
+
+    public long getSudahScan() {
+        return pref.getLong(CEK_SUDAH_SCAN, 0);
     }
 
-    public void setSudahScan(boolean sudahScan) {
-        editor.putBoolean(CEK_SUDAH_SCAN, sudahScan);
+    public void setSudahScan(long sudahScan) {
+        editor.putLong(CEK_SUDAH_SCAN, sudahScan);
+        editor.commit();
     }
-
 }

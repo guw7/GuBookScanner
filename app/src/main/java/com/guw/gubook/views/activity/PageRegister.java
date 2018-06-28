@@ -73,24 +73,24 @@ public class PageRegister extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (fullname.getText().toString().isEmpty()) {
-//                    Toast.makeText(getApplicationContext(), "Nama tidak boleh kosong!", Toast.LENGTH_LONG).show();
-//                } else if (email.getText().toString().isEmpty()) {
-//                    Toast.makeText(getApplicationContext(), "Username tidak boleh kosong!", Toast.LENGTH_SHORT).show();
-//                } else if (password.getText().toString().isEmpty()) {
-//                    Toast.makeText(getApplicationContext(), "Password tidak boleh kosong!", Toast.LENGTH_SHORT).show();
-//                } else if (alamat.getText().toString().isEmpty()) {
-//                    Toast.makeText(getApplicationContext(), "Alamat tidak boleh kosong!", Toast.LENGTH_SHORT).show();
-//                } else if (asal.getText().toString().isEmpty()) {
-//                    Toast.makeText(getApplicationContext(), "Asal tidak boleh ksoong!", Toast.LENGTH_SHORT).show();
-//                } else if (noHp.getText().toString().isEmpty()) {
-//                    Toast.makeText(getApplicationContext(), "No HP tidak boleh ksoong!", Toast.LENGTH_SHORT).show();
-//                } else {
+                if (nama.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Nama tidak boleh kosong!", Toast.LENGTH_LONG).show();
+                } else if (email.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Email tidak boleh kosong!", Toast.LENGTH_SHORT).show();
+                } else if (u_password.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Password tidak boleh kosong!", Toast.LENGTH_SHORT).show();
+                } else if (alamat.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Alamat tidak boleh kosong!", Toast.LENGTH_SHORT).show();
+                } else if (asal.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Asal tidak boleh ksoong!", Toast.LENGTH_SHORT).show();
+                } else if (no_hp.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "No HP tidak boleh ksoong!", Toast.LENGTH_SHORT).show();
+                } else {
                     loading = ProgressDialog.show(mContext, null,
                             "Harap Tunggu...",
                             true, false);
                     requestRegister(); // tester
-//                }
+                }
             }
         });
 
@@ -115,49 +115,32 @@ public class PageRegister extends AppCompatActivity {
                 alamat.getText().toString(),
                 no_hp.getText().toString())
                 .enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
-                if (response.isSuccessful()) {
-                    Log.i("debug", "onResponse: BERHASIL");
-                    loading.dismiss();
+                        if (response.isSuccessful()) {
+                            Log.i("debug", "onResponse: Register BERHASIL");
+                            loading.dismiss();
 
-                    Intent intent = new Intent(getApplicationContext(), PageLogin.class);
-                    startActivity(intent);
-                    finish();
-                }
-//                apalah
+                            Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), PageLogin.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Log.i("debug", "onResponse: GAGAL Register!");
+                            loading.dismiss();
 
-//                if (response.isSuccessful()){
-//                    Log.i("debug", "onResponse: BERHASIL");
-//                    loading.dismiss();
-//                    try {
-//                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
-//                        if (jsonRESULTS.getString("error").equals("false")){
-//                            Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(mContext, PageLogin.class));
-//                        } else {
-//                            String error_message = jsonRESULTS.getString("error_msg");
-//                            Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
-//                        }
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                } else {
-//                    Log.i("debug", "onResponse: GA BERHASIL");
-//                    loading.dismiss();
-//                }
-            }
+                            Toast.makeText(mContext, "GAGAL REGISTRASI !", Toast.LENGTH_SHORT).show();
+                        }
+                    }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.i("debug", "onFailure: ERROR > " + t.getMessage());
-                Toast.makeText(mContext, "Koneksi Internet Bermasalah !", Toast.LENGTH_SHORT).show();
-                loading.dismiss();
-            }
-        });
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.i("debug", "onFailure: ERROR > " + t.getMessage());
+                        Toast.makeText(mContext, "Koneksi Internet Bermasalah !", Toast.LENGTH_SHORT).show();
+                        loading.dismiss();
+                    }
+                });
     }
 
     //  Button Back

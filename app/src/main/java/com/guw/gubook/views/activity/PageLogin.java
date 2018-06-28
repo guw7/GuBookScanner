@@ -57,7 +57,7 @@ public class PageLogin extends ActionClass {
             @Override
             public void onClick(View v) {
                 if (email.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Username tidak boleh kosong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "NIM/Email tidak boleh kosong!", Toast.LENGTH_SHORT).show();
                 } else if (password.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Password tidak boleh kosong!", Toast.LENGTH_SHORT).show();
                 } else {

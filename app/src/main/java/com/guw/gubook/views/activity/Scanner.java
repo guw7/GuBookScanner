@@ -59,10 +59,6 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("GUBOOK SCANNER");
 
-        while (calendar3.getTimeInMillis() < calendar.getTimeInMillis() || calendar3.getTimeInMillis() > calendar2.getTimeInMillis()) {
-            manager.setSudahScan(false);
-        }
-
         if (currentApiVersion >= Build.VERSION_CODES.M) {
             if (checkPermission()) {
                 Toast.makeText(getApplicationContext(), "Permission already granted!", Toast.LENGTH_LONG).show();
@@ -152,21 +148,21 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         Log.d("QRCodeScanner", result.getText());
         Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
 
-        if (result.getText().equals("1") && calendar3.getTimeInMillis() > calendar.getTimeInMillis() && calendar3.getTimeInMillis() < calendar2.getTimeInMillis() && manager.isSudahScan()) {
+        if (result.getText().equals("1") && calendar3.getTimeInMillis() > calendar.getTimeInMillis() && calendar3.getTimeInMillis() < calendar2.getTimeInMillis()) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("\tSelamat Datang di \n Perpustakaan Politeknik Aceh");
+            builder.setTitle("Selamat Datang di \n Perpustakaan Politeknik Aceh");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    manager.setSudahScan(true);
+                    manager.setSudahScan(System.currentTimeMillis());
                     finish();
                 }
             });
             builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bukutamu-via.cloud.revoluz.io"));
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.politeknikaceh.ac.id/"));
                     startActivity(browserIntent);
                 }
             });
@@ -179,6 +175,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
             alert1.show();
 
             koneksi.postJson(result.getText().toString());
+
         } else if (calendar3.getTimeInMillis() < calendar.getTimeInMillis() || calendar3.getTimeInMillis() > calendar2.getTimeInMillis()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("UPPS! \n Belum waktunya untuk berbuka ;)");
@@ -192,7 +189,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
             AlertDialog alert1 = builder.create();
             alert1.show();
 
-        } else if (!manager.isSudahScan()) {
+        } else if (manager.getSudahScan() > calendar.getTimeInMillis() || manager.getSudahScan() < calendar2.getTimeInMillis()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("UPPSS, Anda sudah Scan hari ini, \n Coba lagi esok hari ;)");
             builder.setPositiveButton("Coba Lagi!", new DialogInterface.OnClickListener() {
@@ -217,7 +214,6 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
             AlertDialog alert1 = builder.create();
             alert1.show();
         }
-
     }
 
     //  Button Back
