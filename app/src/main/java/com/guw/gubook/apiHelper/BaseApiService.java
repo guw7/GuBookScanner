@@ -32,4 +32,8 @@ public interface BaseApiService {
                                        @Field("alamat") String alamat,
                                        @Field("no_hp") String no_hp);
 
+    @FormUrlEncoded
+    @POST("ScanCondition.php")
+    Call<ResponseBody> ConScanRequest(
+            @Field("id_pengunjung") String id_pengunjung);
 }

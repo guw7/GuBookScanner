@@ -41,10 +41,10 @@ public class FragAbout extends Fragment {
     private void setupSlider() {
         sliderView.setDurationScroll(800);
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(FragmentSlider.newInstance("http://www.menucool.com/slider/prod/image-slider-1.jpg"));
-        fragments.add(FragmentSlider.newInstance("http://www.menucool.com/slider/prod/image-slider-2.jpg"));
-        fragments.add(FragmentSlider.newInstance("http://www.menucool.com/slider/prod/image-slider-3.jpg"));
-        fragments.add(FragmentSlider.newInstance("http://www.menucool.com/slider/prod/image-slider-4.jpg"));
+        fragments.add(FragmentSlider.newInstance("https://raw.githubusercontent.com/guw7/CV/master/img/slide-1.png"));
+        fragments.add(FragmentSlider.newInstance("https://raw.githubusercontent.com/guw7/CV/master/img/slide-2.png"));
+        fragments.add(FragmentSlider.newInstance("https://raw.githubusercontent.com/guw7/CV/master/img/slide-3.png"));
+        fragments.add(FragmentSlider.newInstance("https://raw.githubusercontent.com/guw7/CV/master/img/slide-4.png"));
 
         mAdapter = new SliderPagerAdapter(getFragmentManager(), fragments);
         sliderView.setAdapter(mAdapter);

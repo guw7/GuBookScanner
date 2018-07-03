@@ -31,7 +31,7 @@ public class Koneksi {
     }
 
     public void postJson(String result) {
-        final int valHadir = Integer.valueOf(result);
+//        final int valHadir = Integer.valueOf(result);
         data = new String[]{
                 sharedPreferences.getString("id_pengunjung", " "),
                 sharedPreferences.getString("nim", " "),
@@ -89,7 +89,7 @@ public class Koneksi {
                 .addFormDataPart("angkatan", angkatan)
                 .addFormDataPart("email", email)
                 .addFormDataPart("no_hp", no_hp)
-                .addFormDataPart("hadir", result)
+                .addFormDataPart("hadir", "27946274a201346f0322e3861909b5ff")
                 .build();
 
         Request request1 = new Request.Builder()
@@ -107,7 +107,8 @@ public class Koneksi {
             public void onResponse(Call call, Response response) throws IOException {
                 Log.i("response", response.body().string());
                 Log.i("url", tesUrl);
-                Log.i("valHadir", "" + valHadir);
+//                Log.i("valHadir", "" + valHadir);
+                Log.i("pengunjung", id_pengunjung);
             }
         });
 

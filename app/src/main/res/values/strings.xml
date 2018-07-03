@@ -34,8 +34,8 @@
     <string name="change_password">Ganti Password</string>
     <string name="about_app">Tentang Aplikasi</string>
     <string name="FAQ">F.A.Q</string>
-    <string name="version">Versi Aplikasi</string>
-    <string name="Getversi">1.0.1</string>
+    <string name="version">Version</string>
+    <string name="Getversi">1.0.0</string>
     <string name="logout">Keluar</string>
 
     <!-- Data Profile -->
@@ -72,10 +72,12 @@
     <string name="title_activity_menu_fragment">GuBook Scanner</string>
 
     <!-- About? -->
+    <string name="nameApp">Aplication</string>
+    <string name="App">GuBook Scanner</string>
     <string name="author">Author</string>
     <string name="nameAuthor">Ghaffara Urwatul Wusqa</string>
     <string name="contact">Contact</string>
-    <string name="contactAuthor">085206754690</string>
+    <string name="contactAuthor">+6285206754690</string>
     <string name="bantuan">Bantuan</string>
 
 

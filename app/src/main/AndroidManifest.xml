@@ -55,6 +55,7 @@
             android:theme="@style/AdaHeader" />
         <activity
             android:name=".views.activity.MenuFragment"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_menu_fragment"
             android:theme="@style/AdaHeader" />
         <activity android:name=".views.activity.PageEditProfile"></activity>

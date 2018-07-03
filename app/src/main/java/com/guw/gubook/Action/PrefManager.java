@@ -19,6 +19,7 @@ public class PrefManager {
     public static final String PREF_NAME = "PREF_GUBOOK";
     private static final String CEK_SUDAH_LOGIN = "sessionLogin";
     private static final String CEK_SUDAH_SCAN = "sudahScan";
+    private static final String CEK_HARIAN = "harian";
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
     private Context mContext;
@@ -51,7 +52,7 @@ public class PrefManager {
             editor.putString("no_hp", data[8]);
         } else {
             //Data User Luar
-            editor.putString("id_pengunjung", data[0]);
+            editor.putString("id_pengunjung", "77777" + data[0]);
             editor.putString("nama", data[1]);
             editor.putString("alamat", data[2]);
             editor.putString("jk", data[3]);
@@ -74,12 +75,25 @@ public class PrefManager {
 
 //    //sesionSudah Scan
 
-    public long getSudahScan() {
-        return pref.getLong(CEK_SUDAH_SCAN, 0);
+    public boolean getSudahScan() {
+        return pref.getBoolean(CEK_SUDAH_SCAN, false);
     }
 
-    public void setSudahScan(long sudahScan) {
-        editor.putLong(CEK_SUDAH_SCAN, sudahScan);
+    public void setSudahScan(boolean sudahScan) {
+        editor.putBoolean(CEK_SUDAH_SCAN, sudahScan);
+        editor.commit();
+    }
+
+    public String getIdPengunjung() {
+        return pref.getString("id_pengunjung", "");
+    }
+
+    public String getHariIni() {
+        return pref.getString("Hari ini", "");
+    }
+
+    public void setHariIni(String hariIni) {
+        editor.putString("Hari ini", hariIni);
         editor.commit();
     }
 }

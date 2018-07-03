@@ -42,23 +42,23 @@
                             android:layout_weight="1"
                             android:gravity="center_horizontal|center_vertical">
 
-                            <mehdi.sakout.fancybuttons.FancyButton
-                                android:id="@+id/btnEdit"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_margin="9dp"
-                                fancy:fb_borderColor="@color/white_smoke"
-                                fancy:fb_borderWidth="2dp"
-                                fancy:fb_defaultColor="@color/colorPrimaryDark"
-                                fancy:fb_focusColor="@color/white_smoke"
-                                fancy:fb_iconPaddingTop="9dp"
-                                fancy:fb_iconPosition="left"
-                                fancy:fb_iconResource="@drawable/ic_edit_dark"
-                                fancy:fb_radius="30dp"
-                                fancy:fb_text=""
-                                fancy:fb_textColor="@color/colorPrimaryDark"
-                                fancy:fb_textGravity="right" />
+                            <!--<mehdi.sakout.fancybuttons.FancyButton-->
+                            <!--android:id="@+id/btnEdit"-->
+                            <!--android:layout_width="50dp"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:layout_alignParentRight="true"-->
+                            <!--android:layout_margin="9dp"-->
+                            <!--fancy:fb_borderColor="@color/white_smoke"-->
+                            <!--fancy:fb_borderWidth="2dp"-->
+                            <!--fancy:fb_defaultColor="@color/colorPrimaryDark"-->
+                            <!--fancy:fb_focusColor="@color/white_smoke"-->
+                            <!--fancy:fb_iconPaddingTop="9dp"-->
+                            <!--fancy:fb_iconPosition="left"-->
+                            <!--fancy:fb_iconResource="@drawable/ic_edit_dark"-->
+                            <!--fancy:fb_radius="30dp"-->
+                            <!--fancy:fb_text=""-->
+                            <!--fancy:fb_textColor="@color/colorPrimaryDark"-->
+                            <!--fancy:fb_textGravity="right" />-->
                         </LinearLayout>
 
                         <LinearLayout
@@ -74,9 +74,9 @@
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/ic_person_white"
                                 android:tint="@color/white"
-                                card_view:civ_border_color="@color/colorPrimaryDark"
+                                card_view:civ_border_color="@color/colorPrimary"
                                 card_view:civ_border_width="10dp"
-                                card_view:civ_fill_color="@color/colorPrimaryDark" />
+                                card_view:civ_fill_color="@color/colorPrimary" />
 
                         </LinearLayout>
 
@@ -93,7 +93,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_margin="9dp"
                                 fancy:fb_borderColor="@color/white_smoke"
-                                fancy:fb_borderWidth="2dp"
+                                fancy:fb_borderWidth="1dp"
                                 fancy:fb_defaultColor="@color/colorPrimaryDark"
                                 fancy:fb_focusColor="@color/white_smoke"
                                 fancy:fb_iconPaddingTop="9dp"
@@ -114,7 +114,7 @@
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/tvEmail"
                         android:layout_centerHorizontal="true"
-                        android:textColor="@color/valhalla"
+                        android:textColor="@color/white_smoke"
                         android:textSize="22sp" />
 
                     <TextView
@@ -125,7 +125,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="22dp"
                         android:gravity="center_vertical"
-                        android:textColor="@color/valhalla"
+                        android:textColor="@color/white"
                         android:textSize="12sp" />
 
                 </RelativeLayout>

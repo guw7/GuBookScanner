@@ -17,8 +17,12 @@ import android.widget.Toast;
 import com.google.zxing.Result;
 import com.guw.gubook.Action.Koneksi;
 import com.guw.gubook.Action.PrefManager;
+import com.guw.gubook.apiHelper.BaseApiService;
+import com.guw.gubook.apiHelper.UtilsApi;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -31,7 +35,9 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
     private ZXingScannerView scannerView;
     private Koneksi koneksi;
     PrefManager manager;
+    BaseApiService mApiService;
     private Calendar calendar, calendar2, calendar3;
+    String today;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         koneksi = new Koneksi(this);
 
         manager = new PrefManager(this);
+        mApiService = UtilsApi.getAPIService(); // panggil apihelper
 
         calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
@@ -59,6 +66,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("GUBOOK SCANNER");
 
+
         if (currentApiVersion >= Build.VERSION_CODES.M) {
             if (checkPermission()) {
                 Toast.makeText(getApplicationContext(), "Permission already granted!", Toast.LENGTH_LONG).show();
@@ -66,6 +74,15 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
                 requestPermission();
             }
         }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
+        Date date = new Date();
+        today = dateFormat.format(date);
+
+
+        if (!today.equals(manager.getHariIni())) {
+            manager.setSudahScan(false);
+        }
+
     }
 
     private boolean checkPermission() {
@@ -94,8 +111,8 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
                 requestPermission();
             }
         }
-    }
 
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -148,14 +165,15 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
         Log.d("QRCodeScanner", result.getText());
         Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
 
-        if (result.getText().equals("1") && calendar3.getTimeInMillis() > calendar.getTimeInMillis() && calendar3.getTimeInMillis() < calendar2.getTimeInMillis()) {
+        if (result.getText().equals("27946274a201346f0322e3861909b5ff") && calendar3.getTimeInMillis() > calendar.getTimeInMillis() && calendar3.getTimeInMillis() < calendar2.getTimeInMillis() && manager.getSudahScan() != true) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Selamat Datang di \n Perpustakaan Politeknik Aceh");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    manager.setSudahScan(System.currentTimeMillis());
+                    manager.setHariIni(today);
+                    manager.setSudahScan(true);
                     finish();
                 }
             });
@@ -189,7 +207,7 @@ public class Scanner extends AppCompatActivity implements ZXingScannerView.Resul
             AlertDialog alert1 = builder.create();
             alert1.show();
 
-        } else if (manager.getSudahScan() > calendar.getTimeInMillis() || manager.getSudahScan() < calendar2.getTimeInMillis()) {
+        } else if (manager.getSudahScan()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("UPPSS, Anda sudah Scan hari ini, \n Coba lagi esok hari ;)");
             builder.setPositiveButton("Coba Lagi!", new DialogInterface.OnClickListener() {
